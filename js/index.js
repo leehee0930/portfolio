@@ -648,20 +648,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // #s3 slider and info logic
   const designButtons = document.querySelectorAll(".design_btn button");
-  const designParts = document.querySelectorAll(".design_part");
+  const designParts = document.querySelectorAll(".design-list > div"); // 모든 파트를 선택하도록 수정
 
+  // 버튼 클릭 이벤트 추가
   designButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
+      // 모든 버튼의 활성화 상태 제거
       designButtons.forEach((btn) => btn.classList.remove("active"));
+      // 클릭된 버튼 활성화
       button.classList.add("active");
+
+      // 모든 파트를 숨김 처리, 선택된 파트만 표시
       designParts.forEach((part, partIndex) => {
-        part.style.display = partIndex === index ? "block" : "none";
+        part.classList.toggle("active", partIndex === index);
       });
     });
   });
 
+  // 초기 상태 설정
   designButtons[0].classList.add("active");
   designParts.forEach((part, index) => {
-    part.style.display = index === 0 ? "block" : "none";
+    part.classList.toggle("active", index === 0);
   });
+
+  let holder = document.querySelector('.design-list'),
+    wrapper = document.querySelector('.design-con-inner'),
+    designContent= document.querySelector('.contents.design-con'),
+    overflowY, mapPositionY
+
+  function onResize(e) {
+    overflowY = holder.offsetHeight - (window.innerHeight/1.2);
+    mapPositionY = gsap.utils.mapRange(0, window.innerHeight, overflowY / 2, overflowY / -2);
+  }
+
+  function onMouseMove(e) {
+    if (overflowY > 0) {
+      let x = e.clientY || (e.changedTouches && e.changedTouches[0].clientY) || 0;
+      gsap.to(holder, {duration: 1, overwrite: true, ease: "power3", x: mapPositionY(y)});
+    }
+  }
+
+  window.addEventListener("resize", onResize);
+  designContent.addEventListener("mousemove", onMouseMove);
+  designContent.addEventListener("touchmove", onMouseMove);
+  designContent.addEventListener("pointermove", onMouseMove);
+  onResize()
 });
