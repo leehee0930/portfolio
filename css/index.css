@@ -336,6 +336,17 @@ video{
   row-gap: 5rem;
   width: 100%;
 }
+.pj_row1 h2{
+  font-size: 3.4rem;
+  font-weight: 800;
+}
+.pj_row1 p{
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.pj_row1 p:last-child{
+  font-size: 1.8rem;
+}
 .pj_row2{
   width: 50%;
   display: flex;
@@ -343,6 +354,10 @@ video{
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+.pj_row2 p{
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 .row2_info{
   width: 100%;
@@ -352,18 +367,23 @@ video{
 }
 .pj_row3{
   width: 100%;
-  height: 5rem;
+  height: 40rem;
 }
 .pj_row3 button{
-  border: none;
+  border: 2px solid #ccc;
+  padding: 2rem 5rem;
+  border-radius: 20rem;
   background-color: transparent;
   cursor: pointer;
-  padding-bottom: 2rem;
+  margin-left: 7rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 .pj_row3 button:hover{
-  border-bottom: 5px solid #000;
+  box-shadow: 0 0 5px #999;
 }
-.pj_row3 button:last-child{margin-left: 10rem;}
+.pj_row3 button:first-child{margin-left: 0;}
 
 
 .s2_btn a{
@@ -404,6 +424,7 @@ video{
   background: transparent;
   transition: all 0.35s ease;
   margin-left: 1rem;
+  cursor: pointer;
 }
 .design_btn button:last-child{margin-left: 3rem;}
 .design_btn button.active{
