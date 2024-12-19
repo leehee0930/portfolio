@@ -21,7 +21,7 @@ header nav{
   height: 8rem;
   padding: 2rem;
   filter: blur(1);
-  font-family: "Ojuju", sans-serif;
+  font-family: "Hubot Sans", serif;
 }
 header nav div a img{
   width: 100%;

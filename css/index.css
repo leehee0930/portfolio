@@ -38,19 +38,28 @@ video{
   position: relative;
   color: #fff;
 }
+.info div{
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.info div.show{
+  opacity: 1;
+  transform: translateY(0);
+}
 .info .name{
   display: inline;
   font-size: 13rem;
 }
 .name_fi{
   font-weight: 700;
-  font-family: "Ojuju", sans-serif;
+  font-family: "Hubot Sans", serif;
   transform: translateX(-45rem);
 }
 .name_se{font-weight: 600;}
 .name_th{
   font-weight: 700;
-  font-family: "Ojuju", sans-serif;
+  font-family: "Hubot Sans", serif;
   transform: translateX(35rem);
   margin-bottom: 5rem;
 }
@@ -104,7 +113,7 @@ video{
 .about_body h2{
   font-size: 8rem;
   margin-bottom: 2rem;
-  font-family: "Ojuju", sans-serif;
+  font-family: "Hubot Sans", serif;
   font-weight: 700;
 }
 .profile{
@@ -277,7 +286,7 @@ video{
   font-size: 5.4rem;
   font-weight: 800;
   text-transform: capitalize;
-  font-family: "Ojuju", sans-serif;
+  font-family: "Hubot Sans", serif;
 }
 .title_head1 ul {
   display: flex;
@@ -413,7 +422,7 @@ video{
   font-size: 5.4rem;
   font-weight: 800;
   text-transform: capitalize;
-  font-family: "Ojuju", sans-serif;
+  font-family: "Hubot Sans", serif;
   color: #fff;
 }
 .design_btn button{
@@ -702,7 +711,7 @@ video{
   margin: 2rem 0;
   font-size: 6rem;
   font-weight: 700;
-  font-family: "Ojuju", sans-serif;
+  font-family: "Hubot Sans", serif;
 }
 .plan_content{
   display: flex;
@@ -733,9 +742,9 @@ video{
   height: 100%;
 }
 .inner:nth-of-type(1) div{background-image: url(../image/Github-Dark.svg);}
-.inner:nth-of-type(2) div{background-image: url(../image/Github-Dark.svg);}
-.inner:nth-of-type(3) div{background-image: url(../image/Github-Dark.svg);}
-.inner:nth-of-type(4) div{background-image: url(../image/Github-Dark.svg);}
+.inner:nth-of-type(2) div{background-image: url(../image/orang.png);}
+.inner:nth-of-type(3) div{background-image: url(../image/loreal.png);}
+.inner:nth-of-type(4) div{background-image: url(../image/stuby.png);}
 .inner:nth-of-type(5) div{background-image: url(../image/Github-Dark.svg);}
 
 .inner > div{
@@ -860,6 +869,7 @@ video{
 #s5 h2{
   font-size: 12rem;
   margin-bottom: 7rem;
+  font-family: "Hubot Sans", serif;
 }
 #s5 h2:last-child{
   text-align: right;
@@ -873,4 +883,5 @@ video{
   font-size: 6rem;
   text-shadow: 0 0 15px #FFF;
 }
+#s5 ul li:hover{transform: scale(1.2);}
 
