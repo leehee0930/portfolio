@@ -21,6 +21,7 @@ header nav{
   height: 8rem;
   padding: 2rem;
   filter: blur(1);
+  letter-spacing: 2px;
   font-family: "Hubot Sans", serif;
 }
 header nav div a img{

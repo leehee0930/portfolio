@@ -937,4 +937,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const s1Section = document.getElementById("s1");
   observer.observe(s1Section);
+
+  const sectionS5 = document.querySelector("#s5");
+  const s5Header1 = document.querySelector("#s5 h2:nth-of-type(1)");
+  const s5Header2 = document.querySelector("#s5 h2:nth-of-type(2)");
+  const s5Ul = document.querySelector("#s5 ul");
+  
+  // 초기 상태 설정
+  function resetS5Animation() {
+    s5Header1.style.transform = "translateX(-100px)";
+    s5Header1.style.opacity = "0";
+    s5Header2.style.transform = "translateX(100px)";
+    s5Header2.style.opacity = "0";
+    s5Ul.style.opacity = "0";
+  }
+  
+  // 애니메이션 실행 함수
+  function animateS5() {
+    setTimeout(() => {
+      s5Header1.style.transform = "translateX(0)";
+      s5Header1.style.opacity = "1";
+    }, 500); // 첫 번째 h2 등장
+  
+    setTimeout(() => {
+      s5Header2.style.transform = "translateX(0)";
+      s5Header2.style.opacity = "0.5";
+    }, 1500); // 두 번째 h2 등장
+  
+    setTimeout(() => {
+      s5Ul.style.opacity = "1";
+    }, 2500); // ul 등장
+  }
+  
+  // IntersectionObserver로 애니메이션 트리거
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateS5();
+          obs.disconnect(); // 한 번 실행 후 해제
+        }
+      });
+    },
+    {
+      threshold: 0.5, // 섹션의 50%가 뷰포트에 들어오면 트리거
+    }
+  );
+  
+  // 초기 상태로 재설정 및 옵저버 실행
+  resetS5Animation();
+  obs.observe(sectionS5);
+  
+  // 화면 리로드 시에도 초기화
+  window.addEventListener("beforeunload", resetS5Animation);
+});
+
+
+$(document).ready(function () {
+  // 모바일 팝업 열기
+  $('.mobile').on('click', function (e) {
+    e.preventDefault(); // 기본 동작 방지
+    $('.pop').fadeIn(); // .pop 나타내기
+    $('body').css('overflow', 'hidden'); // 배경 스크롤 비활성화
+  });
+
+  // 태블릿 팝업 열기
+  $('.tablet').on('click', function (e) {
+    e.preventDefault(); // 기본 동작 방지
+    $('.pop').fadeIn(); // .pop 나타내기
+    $('body').css('overflow', 'hidden'); // 배경 스크롤 비활성화
+  });
+
+  // 팝업 닫기
+  $('.pop .close').on('click', function (e) {
+    e.preventDefault(); // 기본 동작 방지
+    $('.pop').fadeOut(); // .pop 숨기기
+    $('body').css('overflow', 'auto'); // 배경 스크롤 활성화
+  });
 });

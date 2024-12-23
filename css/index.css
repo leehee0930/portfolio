@@ -54,12 +54,14 @@ video{
 .name_fi{
   font-weight: 700;
   font-family: "Hubot Sans", serif;
+  letter-spacing: 7px;
   transform: translateX(-45rem);
 }
 .name_se{font-weight: 600;}
 .name_th{
   font-weight: 700;
   font-family: "Hubot Sans", serif;
+  letter-spacing: 5px;
   transform: translateX(35rem);
   margin-bottom: 5rem;
 }
@@ -406,6 +408,47 @@ video{
 .s2_btn a:hover{color: #FF6000;}
 .prev{left: 2rem;}
 .next{right: 2rem;}
+
+/* Mobile popup */
+.pop{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  overflow: hidden;
+}
+.close{
+  position: fixed;
+  right: 3rem;
+  top: 3rem;
+  font-size: 8rem;
+  color: #FFF;
+}
+.pop1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 875px;
+  background: url(../image/tablet_view.png) no-repeat center center;
+}
+.pop1 iframe{margin-top: 50px;}
+
+.pop2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 425px;
+  height: 727px;
+  background: url(../image/mobile_view.png) no-repeat center center;
+}
+.pop2 iframe{margin-top: 70px;}
 
 /* section3 */
 #s3{
@@ -869,6 +912,8 @@ video{
 #s5 h2{
   font-size: 12rem;
   margin-bottom: 7rem;
+}
+#s5 h2:first-child{
   font-family: "Hubot Sans", serif;
 }
 #s5 h2:last-child{
@@ -885,3 +930,31 @@ video{
 }
 #s5 ul li:hover{transform: scale(1.2);}
 
+#s5 h2, #s5 ul {
+  opacity: 0;
+  transform: translateX(100px); /* 기본적으로 오른쪽으로 이동한 상태 */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#s5 h2:first-child {
+  transform: translateX(-50px); /* 첫 번째 h2는 왼쪽으로 이동한 상태 */
+}
+
+/* 애니메이션 활성화 */
+#s5.show h2:first-child {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.3s; /* 등장 지연 */
+}
+
+#s5.show h2:last-child {
+  opacity: 0.5;
+  transform: translateX(0);
+  transition-delay: 1.3s; /* 1초 뒤 등장 */
+}
+
+#s5.show ul {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 2s; /* ul는 2초 뒤 등장 */
+}
